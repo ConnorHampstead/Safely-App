@@ -1,0 +1,27 @@
+If you want, install https://standardjs.com/ to take care of the structural stuff.
+Variable names still need to be done manually, though.
+
+VARIABLE NAMES:
+html pages must be named in camelCase
+method names must be named in camelCase
+variable names must be named in lower_underscore_case
+class names must be named in TitleCase
+
+COMMENTS:
+Comments must be full sentences. Leave a space after
+the comment 
+
+STRUCTURE:
+leave two blank lines between functions and 
+indent with two spaces, not with tabs
+only use single quotes for strings ' '
+  unless you have some single quotes within your string,
+  in which case use double quotes " "
+use === for comparisons
+  use == if checking for null or undefined
+  this includes using !== in place of !=
+put a space after keywords (if (xyz) { ... }) 
+  and function names (function name (args) { ... }
+don't leave any unused variables
+infix operators must be spaced ( x = 2 + 1 )
+no lines longer than 80 characters ( including comments )
