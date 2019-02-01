@@ -1,0 +1,4 @@
+#ff9933 - Light orange
+#ff6600 - Dark orange
+#33cc33 - Green button
+#ff3300 - Red button
