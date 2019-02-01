@@ -9,7 +9,7 @@ class names must be named in TitleCase
 
 COMMENTS:
 Comments must be full sentences. Leave a space after
-the comment 
+the comment symbol ( /* comment */ )
 
 STRUCTURE:
 leave two blank lines between functions and 
