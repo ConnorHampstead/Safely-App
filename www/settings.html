@@ -11,13 +11,13 @@
     <style type="text/css">
       .Settings {
         color: white;
-        margin-top: 5%;
+        margin-top: 2%;
         margin-right: 7.5%;
         float: right;
         text-align: center;
         width: 85%;
         font-size: 150%;
-        padding-top: 1.25%;
+        padding-top: 0.25%;
         padding-bottom: 1.25%;
     }
     </style>
@@ -37,7 +37,8 @@
       <h1 style="font-size: 250%;">Settings</h1>
       <div class = "Emergency contact">
         <p1>Emergency Contact</p1>
-        <input id = "ContactNumber" type ="text"  maxlength="19"  ><br>
+        <input id = "ContactNumber" type ="text"  maxlength="19" value="Previous Contact"  ><br>
+        <button type= "button" onclick="CheckNumber()" >Change</button><br>
       </div>
       <div class = "Walking Speed">
         <p1>Walking Speed</p1>
@@ -46,7 +47,11 @@
         <p1>Saftey Rating</p1>
       </div>
     </div>
-    
+    <script type="text/javascript">
+      function CheckNumber(){
+
+      }
+    </script>
 </body>
 
 </html>
