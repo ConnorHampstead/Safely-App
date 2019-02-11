@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+    <title>Blank App</title>
+    <style>
+
+    body {
+        background-color: #ff9933;
+    }
+
+    #largeSafelyLogo {
+        max-width:57.7%;
+    }
+
+    .logo {
+        text-align:center;
+        margin-top:20%;
+    }
+
+    .loginForm {
+        margin-top: 5%;
+        margin-right: 7.5%;
+        float: right;
+        text-align: center;
+        width: 85%;
+        background-color: white;
+        padding-top: 1.25%;
+        padding-bottom: 1.25%;
+    }
+
+    #safelyTitle {
+        width:47%;
+        margin-top:10px;
+        float: left;
+        margin-left: 26.5%;
+    }
+
+    input[type=text], input[type=password] {
+        width: 92%;
+        margin-top: 1
+        .25%;
+        margin-bottom: 1.25%;
+        font-size: 115%;
+    }
+    button:hover { filter: brightness(85%); }
+    button {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+    }
+
+    button[type=signUp] {
+        float: left;
+        margin-left: 4%;
+    }
+
+    button[id=login] {
+        float: right;
+        margin-right: 4%;
+    }
+
+</style>
+</head>
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <div class="logo">
+        <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
+    </div>
+    <form action="">
+        <div class="loginForm">
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button type="signUp">SIGN UP</button><button type="submit" id="login">Log in</button>
+        </div>
+    </form>
+    <img id="safelyTitle" src="img/Safely Title.png" alt="Safely">
+</body>
+</html>

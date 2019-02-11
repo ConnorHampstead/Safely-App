@@ -9,9 +9,13 @@
 
     <title>Settings</title>
     <style type="text/css">
+      body {
+      	background-color: #ff9933;
+      	background-image: none;
+      }
+
       .Settings {
         color: white;
-        margin-top: 3%;
         margin-right: 7.5%;
         float: right;
         text-align: center;
@@ -34,14 +38,72 @@
         font-size: 80%;
        }
 
-      
-      button:hover { filter: brightness(85%); }
+       #largeSafelyLogo {
+        max-width:57.7%;
+       }
+
+       .logo {
+        text-align:center;
+        margin: auto;
+        padding-top: 2%;
+       }
+
+      button:hover { 
+      	filter: brightness(85%); 
+      }
+
+      .navbar {
+      	padding-top: 2%;
+      	width: 100%;
+      }
+
+      .Emergencycontact {
+      	padding: 2%;
+      	height: 20%;
+      	margin: auto;
+      	border-left: 1px solid #ff6600;
+      	border-right: 1px solid #ff6600;
+      	border-bottom: 1px solid #ff6600;
+      	margin-bottom: 2%;
+      }
+
+      .WalkingSpeed {
+      	padding: 2%;
+      	height: 20%;
+      	margin: auto;
+      	border-left: 1px solid #ff6600;
+      	border-right: 1px solid #ff6600;
+      	border-bottom: 1px solid #ff6600;
+      	margin-bottom: 2%;
+      }
+
+      .SafetyRating {
+      	padding: 2%;
+      	height: 20%;
+      	margin: auto;
+      	border-left: 1px solid #ff6600;
+      	border-right: 1px solid #ff6600;
+      	border-bottom: 1px solid #ff6600;
+      	margin-bottom: 2%;
+      }
+
+      aside {
+      	float: right;
+      	margin:auto;
+      	margin-top: 10%;
+      	bottom:0;
+      }
+
     </style>
 </head>
 
 <body>
 
-    <div>
+	<div class="logo">
+        <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
+    </div>
+
+    <div class="navbar">
         <ul>
           <li><a href="#My Account">My Account</a></li>
           <li><a href="#Settings">Settings</a></li>
@@ -50,16 +112,19 @@
         </ul>
     </div>
     <div class = "Settings">
-      <h1 style="font-size: 250%;">Settings</h1>
-      <div class = "Emergency contact">
-        <p1>Emergency Contact:Number</p1>
-        <input id = "ContactNumber" type ="text"  maxlength="11" placeholder ="Email"  ><br>
-        <p1>Emergency Contact:Name</p1>
-         <input id = "ContactName" type ="text"  maxlength="11" placeholder ="Name"  ><br>
-        <button type= "button" onclick="CheckNumber()" >Change</button><br>
+      <h1 style="font-size: 1.5em;">Settings</h1>
+      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Emergency Contacts</p>
+      <div class = "Emergencycontact">
+        <p1>Name: </p1>
+        <input id = "ContactName" type ="text"  maxlength="11" placeholder ="Mum" style="width: auto;" ><br>
+        <p1>Number: </p1>
+        <input id = "ContactNumber" type ="text"  maxlength="11" placeholder ="0712345678"  style="width: auto;"><br>
+        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33;">Add</button>
+        <button type="button" onclick="CheckNumber()" style="background-color:#ff3300;">Delete</button><br>
       </div>
-      <div class = "Walking Speed">
-        <p1>Walking Speed</p1>
+
+      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Walking Speed</p>
+      <div class = "WalkingSpeed">
         <select id = "Speed">
           <option value="Speed1">1</option>
           <option value="Speed2">2</option>
@@ -69,18 +134,20 @@
         </select>
         <button type= "button" onclick="ChangeSpeed()" >Change</button><br>
       </div>
-      <div class = "Saftey Rating">
-        <p1>Saftey Rating</p1>
-        <select id = "Saftey">
+
+      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Safety Rating</p>
+      <div class = "SafetyRating">
+        <select id = "Safety">
           <option value="Speed1">1</option>
           <option value="Speed2">2</option>
           <option value="Speed3">3</option>
           <option value="Speed4">4</option>
           <option value="Speed5">5</option>
         </select>
-        <button type= "button" onclick="ChangeSaftey()" >Change</button><br>
+        <button type= "button" onclick="ChangeSafety()" >Change</button><br>
       </div>
     </div>
+    
     <aside>
       <button type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
     </aside>
