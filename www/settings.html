@@ -11,15 +11,31 @@
     <style type="text/css">
       .Settings {
         color: white;
-        margin-top: 2%;
+        margin-top: 3%;
         margin-right: 7.5%;
         float: right;
         text-align: center;
         width: 85%;
         font-size: 150%;
-        padding-top: 0.25%;
+        padding-top: 1.25%;
         padding-bottom: 1.25%;
-    }
+      }
+      button {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        font-size:  80%;
+      }
+       input[type=text]{
+        width: 25%;
+        margin-top: 1
+        .25%;
+        margin-bottom: 1.25%;
+        font-size: 80%;
+       }
+
+      
+      button:hover { filter: brightness(85%); }
     </style>
 </head>
 
@@ -36,13 +52,15 @@
     <div class = "Settings">
       <h1 style="font-size: 250%;">Settings</h1>
       <div class = "Emergency contact">
-        <p1>Emergency Contact</p1>
-        <input id = "ContactNumber" type ="text"  maxlength="19" value="Previous Contact"  ><br>
+        <p1>Emergency Contact:Number</p1>
+        <input id = "ContactNumber" type ="text"  maxlength="11" placeholder ="Email"  ><br>
+        <p1>Emergency Contact:Name</p1>
+         <input id = "ContactName" type ="text"  maxlength="11" placeholder ="Name"  ><br>
         <button type= "button" onclick="CheckNumber()" >Change</button><br>
       </div>
       <div class = "Walking Speed">
         <p1>Walking Speed</p1>
-        <select>
+        <select id = "Speed">
           <option value="Speed1">1</option>
           <option value="Speed2">2</option>
           <option value="Speed3">3</option>
@@ -53,7 +71,7 @@
       </div>
       <div class = "Saftey Rating">
         <p1>Saftey Rating</p1>
-        <select>
+        <select id = "Saftey">
           <option value="Speed1">1</option>
           <option value="Speed2">2</option>
           <option value="Speed3">3</option>
@@ -63,6 +81,10 @@
         <button type= "button" onclick="ChangeSaftey()" >Change</button><br>
       </div>
     </div>
+    <aside>
+      <button type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
+    </aside>
+
     <script type="text/javascript">
       function CheckNumber(){
 
@@ -71,7 +93,10 @@
 
       }
       function ChangeSaftey(){
-        
+
+      }
+      function ShowTCs(){
+
       }
     </script>
 </body>
