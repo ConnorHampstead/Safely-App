@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+    <title>Sign Up</title>
+    <style type="text/css">
+      body {
+      	background-color: #ff9933;
+      	background-image: none;
+      }
+
+      .SignUp {
+        color: black;
+        margin-right: 7.5%;
+        float: right;
+        text-align: center;
+        width: 85%;
+        font-size: 150%;
+        padding-top: 1.25%;
+        padding-bottom: 1.25%;
+      }
+      button {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        font-size:  80%;
+      }
+       input[type=text]{
+        width: 25%;
+        margin-top: 1.25%;
+        margin-bottom: 1.25%;
+        font-size: 80%;
+       }
+
+       #largeSafelyLogo {
+        max-width:57.7%;
+       }
+
+       .logo {
+        text-align:center;
+        margin: auto;
+        padding-top: 2%;
+       }
+
+      button:hover {
+      	filter: brightness(85%);
+      }
+
+      .navbar {
+      	padding-top: 2%;
+      	width: 100%;
+      }
+
+
+      aside {
+      	float: right;
+      	margin:auto;
+      	margin-top: 10%;
+      	bottom:0;
+      }
+      label{
+        display:inline-block;
+        width:200px;
+        margin-right:30px;
+        text-align:right;
+      }
+      .signupForm{
+        border:none;
+        width:500px;
+        margin:0px auto;
+      }
+      select{
+           width:220px;
+           height:27px;
+           top: 100%;
+           left: 0;
+           right: 0;
+           z-index: 99;
+      }
+
+    </style>
+</head>
+
+<body>
+
+	<div class="logo">
+        <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
+    </div>
+
+    <div class="navbar">
+        <ul>
+          <li><a href="#My Account">My Account</a></li>
+          <li><a href="#Settings">Settings</a></li>
+          <li><a href="#Contact">Contact</a></li>
+          <li style="float:right"><a href="#Policy">Policy</a></li>
+        </ul>
+    </div>
+    <div class = "SignUp">
+      <h1 style="font-size: 1.5em;">Sign Up</h1>
+      <div class = "signupForm">
+        <label for="Email">Email:</label>
+        <input id = "Email" type ="text"  style="width: auto;" ><br>
+        <label for="Username">Username:</label>
+        <input id = "Username" type ="text"  style="width: auto;" ><br>
+        <label for="Password">Password:</label>
+        <input id = "Password" type ="text" style="width: auto;"><br>
+        <label for="Confirm Password">Confirm Password:</label>
+        <input id = "Confirm Password" type ="text" style="width: auto;"><br>
+        <label for="Phone">Phone number:</label>
+        <input id = "Phone" type ="text"  style="width: auto;" ><br>
+        <label for="Security">Security Question:</label>
+        <select id="Security">
+          <option value="Pet">First Pet Name</option>
+          <option value="City">City of birth</option>
+          <option value="Color">Favorite Color</option>
+        </select>
+        <label for="Answer">Answer:</label>
+        <input id = "Answer" type ="text"  style="width: auto;" ><br>
+        <input type="checkbox"  name="terms" value="Accept" style="font-size: xx-small" >Do you agree to our terms of service and privacy statement? <br>
+        <button type= "submit" onclick="CheckValid()" style="background-color:#ffa500;">SIGN UP</button>
+
+      </div>
+
+
+
+    <aside>
+      <button type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
+    </aside>
+
+    <script type="text/javascript">
+      function CheckValid(){
+
+
+      }
+      function ChangeSpeed(){
+
+      }
+      function ChangeSaftey(){
+
+      }
+      function ShowTCs(){
+
+      }
+    </script>
+</body>
+
+</html>
+
