@@ -1,0 +1,35 @@
+user(userID 		primary key, int, auto-increment,
+    email			varchar(320),# will become text because varchar>255, but thats ok
+    firstName 		varchar(35), # UK Gov Data Standards Catalogue
+    lastName		varchar(35), # ^
+    password		varchar(24), # Arbitrary, lets say it maxes at 24
+    phoneNumber		varchar(15), # International standards supports 15
+    )							 # https://en.wikipedia.org/wiki/Telephone_number
+
+userSettings(userID 		primary/foreign key, int,
+            safetyLevel		varchar(10),
+            walkingSpeed	varchar(9) # "Very Fast" has 9 chars, varchar(4) if we only store percentage
+            )
+
+userContacts(userID 		primary/foreign key, int,
+            contactID 		primary key, int, auto-increment,
+            contactName 	varchar(35),	# People will likely just use first names or nicknames?
+            contactNumber	varchar(15),	# Same reason as phoneNumber in user relation
+            )
+
+userLocation(userID 	primary/foreign key, int,
+            location 	varchar(19),	# Round lat/longitude to 6 d.p. max for each is -0.000000 = 9 plus the space in the middle
+            )
+
+incidents(incidentID			primary key, int, auto-increment,
+            userID 				primary/foreign key, int
+            incidentLocation	varchar(19),	# Same as userLocation location
+            incidentTimestamp	timestamp(),	# Stores date and time, beautiful.
+            incidentClass		varchar(30),	# Arbitrary, depends on what our longest incident class is, likely wont be more than 30, though.
+            userDestination		varchar(255),	# Max varchar, addresses likely won't be longer than this.
+            userOrigin			varchar(19),	# lat/longitude.
+            )
+
+incidentContact(incidentID		primary/foreign key, int,
+                contactID		primary/foreign key, int
+                )
