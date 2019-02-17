@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-    <title>Blank App</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+    <title>Login - Safely</title>
+
     <style>
 
     body {
@@ -13,20 +15,23 @@
     #largeSafelyLogo {
         max-width:57.7%;
     }
-
+    .login{
+        font-color:red;
+    }
     .logo {
         text-align:center;
         margin-top:20%;
     }
 
     .loginForm {
+        border-radius: 10px;
         margin-top: 5%;
         margin-right: 7.5%;
         float: right;
         text-align: center;
         width: 85%;
         background-color: white;
-        padding-top: 1.25%;
+        padding-top: 1.4%;
         padding-bottom: 1.25%;
     }
 
@@ -44,37 +49,85 @@
         margin-bottom: 1.25%;
         font-size: 115%;
     }
-    button:hover { filter: brightness(85%); }
+
+    .button:hover { 
+        background-color: teal; /* Green */
+        color: white;
+        filter: brightness(10%); }
+
     button {
         background-color: #ff6600;
         color: white;
         border: none;
+        font-size: 115%;
     }
 
     button[type=signUp] {
-        float: left;
+        border-radius: 15px;
+        border: 100% black;
+        padding: 2%; 
+        width: 25%;
+        height: 15%;
+        float: center;
         margin-left: 4%;
+        text-align: center;
     }
 
+    #password,#email{
+        border-radius: 6px;       
+    }
     button[id=login] {
-        float: right;
+        border-radius: 10px;
+        border: 2% solid #73AD21;
+        padding: 2%; 
+        width: 25%;
+        height: 15%;
+        float: center;
         margin-right: 4%;
+        text-align: center;
+    }
+
+    .policy{
+        float:center;
+        font-color:red;
+        text-align: center;
+        font-size: 112%;
     }
 
 </style>
 </head>
+
+<script type="text/javascript">
+    function validateForm(){
+        var email = document.getElementById("email").value;
+        var passowrd = document.getElementById("passowrd").value;
+
+        if (cardcardno.match("email") && (passowrd.match("pass"))){
+                alert("You have successfully logged in.");
+            }
+        else{
+            alert("Please check you have entered valid details");
+            return false;
+            }
+    }
+</script>
+
 <body>
     <script type="text/javascript" src="cordova.js"></script>
+
     <div class="logo">
         <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
     </div>
-    <form action="">
+
+    <form onsubmit= "validateForm();return false;">
         <div class="loginForm">
-            <input type="text" placeholder="Email" name="email" required>
-            <input type="password" placeholder="Password" name="password" required>
-            <button type="signUp">SIGN UP</button><button type="submit" id="login">Log in</button>
+            <input id="email" type="text" placeholder="Email" name="email" >
+            <input id="password" type="password" placeholder="Password" name="password" >
+            <button class="signup" type="signUp"><a href="#SignUp"></a>Sign up</button>
+            <button type="submit" id="login">Log In</a></button> 
         </div>
     </form>
     <img id="safelyTitle" src="img/Safely Title.png" alt="Safely">
 </body>
 </html>
+
