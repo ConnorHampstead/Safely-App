@@ -87,11 +87,35 @@
       	margin-bottom: 2%;
       }
 
+      .personalsettings {
+      	padding: 2%;
+      	height: 20%;
+      	margin: auto;
+      	border-left: 1px solid #ff6600;
+      	border-right: 1px solid #ff6600;
+      	border-bottom: 1px solid #ff6600;
+      	margin-bottom: 2%;
+      }
+
+      .Addresses {
+      	padding: 2%;
+      	height: 20%;
+      	margin: auto;
+      	border-left: 1px solid #ff6600;
+      	border-right: 1px solid #ff6600;
+      	border-bottom: 1px solid #ff6600;
+      	margin-bottom: 2%;
+      }
+
       aside {
       	float: right;
       	margin:auto;
       	margin-top: 10%;
       	bottom:0;
+      }
+
+      p {
+      	margin: 0%;
       }
 
     </style>
@@ -103,6 +127,8 @@
         <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
     </div>
 
+    <!-- 
+		is this really needed?
     <div class="navbar">
         <ul>
           <li><a href="#My Account">My Account</a></li>
@@ -110,13 +136,31 @@
           <li><a href="#Contact">Contact</a></li>
           <li style="float:right"><a href="#Policy">Policy</a></li>
         </ul>
-    </div>
+    </div> -->
+
     <div class = "Settings">
-      <h1 style="font-size: 1.5em;">Settings</h1>
-      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Emergency Contacts</p>
+      <h1 style="font-size: 1.2em;background-color: #ff6600">SETTINGS</h1>
+      
+      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Personal settings</p>
+      <div class="personalsettings">
+      	<p>Name Surname</p> <!-- get from database-->
+      	<p>Phone #: 0784563213 </p> <!--get from DB-->
+      	<button type= "button" onclick="edit()" style="background-color:#33cc33; margin-top: 2%";>Edit</button>
+      </div>
+
+      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Saved Addresses</p>
+      <div class = "Addresses">
+        <p>123 Abcd Street CF12 3AB</p> <!-- need to link this to database -->
+        
+        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33; margin-top: 2%";>Add</button>
+        <button type="button" onclick="CheckNumber()" style="background-color:#ff3300;">Delete</button><br>
+      </div>
+
+      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Emergency Contacts</p>
       <div class = "Emergencycontact">
-        <p id = "ContactName">Mum: </p><p id = "ContactNumber">0724552422</p>
-        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33;">Add</button>
+        <p id = "ContactName" style="display: inline;">Mum: </p><p id = "ContactNumber" style="display: inline;">0724552422</p><br> <!-- need to link this to database -->
+        
+        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33; margin-top: 2%";>Add</button>
         <button type="button" onclick="CheckNumber()" style="background-color:#ff3300;">Delete</button><br>
       </div>
 
@@ -146,7 +190,7 @@
     </div>
     
     <aside>
-      <button type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
+      <button class="terms" type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
     </aside>
 
     <script type="text/javascript">
@@ -156,7 +200,7 @@
       function ChangeSpeed(){
 
       }
-      function ChangeSaftey(){
+      function ChangeSafety(){
 
       }
       function ShowTCs(){
