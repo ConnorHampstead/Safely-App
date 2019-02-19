@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+ <html>
 <head>
     <meta charset="utf-8" />
 
@@ -23,12 +23,14 @@
         font-size: 150%;
         padding-top: 1.25%;
         padding-bottom: 1.25%;
+        font-family: 'Source Sans Pro', sans-serif;
       }
       button {
         background-color: #ff6600;
         color: white;
         border: none;
         font-size:  80%;
+        font-family: 'Raleway', sans-serif;
       }
        input[type=text]{
         width: 25%;
@@ -36,6 +38,9 @@
         margin-bottom: 1.25%;
         font-size: 80%;
        }
+        input[type=text]:focus{
+            border: 3px solid #000;
+        }
 
        #largeSafelyLogo {
         max-width:57.7%;
@@ -49,6 +54,7 @@
 
       button:hover {
       	filter: brightness(85%);
+        color: black;
       }
 
       .navbar {
@@ -73,6 +79,7 @@
         border:none;
         width:500px;
         margin:0px auto;
+        
       }
       select{
            width:220px;
@@ -84,6 +91,23 @@
       }
 
     </style>
+    <script>src='https://google.com/recaptcha/api.js'</script>
+    <script type="text/javascript">
+      function CheckValid(){
+
+
+      }
+      function ChangeSpeed(){
+
+      }
+      function ChangeSaftey(){
+
+      }
+      function ShowTCs(){
+
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500,700i|Source+Sans+Pro:300" rel="stylesheet">
 </head>
 
 <body>
@@ -112,27 +136,14 @@
         </select>
         <label for="Answer">Answer:</label>
         <input id = "Answer" type ="text"  style="width: auto;" ><br>
-        <p>By clicking Sign Up, you agree to our <a href="termsAndConditions.html">Terms and Conditions </a>and our <a href="privacyPolicy.html">Privacy Policy</a></p>
+        <div class="g-recaptcha" data-sitekey="6Lc3bpIUAAAAAE4ovsGeowXVnpLjDrt_ZulLX65G"></div><br>
+        <input id="gdprCheck" type="checkbox" required>
+        By clicking ticking the checkbox,<br> you agree to our <a href="termsAndConditions.html">Terms and Conditions</a> <br>and our <a href="privacyPolicy.html">Privacy Policy</a>
         <div class="policy">
     </div>
         <button type= "submit" onclick="CheckValid()" style="background-color:#ffa500;">SIGN UP</button>
       </div>
-
-    <script type="text/javascript">
-      function CheckValid(){
-
-
-      }
-      function ChangeSpeed(){
-
-      }
-      function ChangeSaftey(){
-
-      }
-      function ShowTCs(){
-
-      }
-    </script>
+    </div>
 </body>
 
 </html>
