@@ -8,77 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <title>Safely</title>
-    <style type="text/css">
-      body {
-        background-color: #ff9933;
-        background-image: none;
-      }
-
-      #largeSafelyLogo {
-        max-width:57.7%;
-       }
-
-      .logo {
-        text-align:center;
-        margin: auto;
-        padding-top: 2%;
-       }
-
-      .navbar {
-        padding-top: 2%;
-        width: 100%;
-      }
-
-      #map {
-        height: 400px;
-        width: 70%;
-        margin-left: 15%;
-        margin-top: 2%;
-      }
-
-      .controls {
-        margin-top: 3%;
-        border: 1px solid transparent;
-        border-radius: 0.5% 0% 0% 0.25%;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 8%;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      #origin-input,
-      #destination-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 30%;
-      }
-
-      #origin-input:focus,
-      #destination-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #mode-selector {
-        color: #fff;
-        background-color: #4d90fe;
-        margin-left: 4%;
-        padding: 1% 4% 0% 4%;
-      }
-
-      #mode-selector label {
-        font-family: Roboto;
-        font-size: 100%;
-        font-weight: 300;
-      }
-
-
-    </style>
 
 </head>
 
@@ -89,11 +18,11 @@
 
     <div class="navbar">
         <ul>
-          <li><a href="#My Account">My Account</a></li>
+          <li><a href="index.html">My Account</a></li>
           <li><a href="settings.html">Settings</a></li>
           <li><a href="#Contact">Contact</a></li>
           <li style="float:right"><a href="login.html">Log Out</a></li>
-          <li style="float:right"><a href="#Policy">Policy</a></li>
+          <li style="float:right"><a href="privacyPolicy.html">Policy</a></li>
         </ul>
     </div>
 
@@ -121,13 +50,43 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
+      var infoWindow;
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          mapTypeControl: false,
+          //mapTypeControl: false,
           center: {lat: 51.489093, lng: -3.177371}, //CHANGE TO CURRENT LAT AND LNG
           zoom: 15
         });
+        infoWindow = new google.maps.InfoWindow;
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var marker = new google.maps.Marker({
+              position: pos,
+              map: map,
+              title: "You're here"
+            })
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
         new AutocompleteDirectionsHandler(map);
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
       }
 
       /**
@@ -221,12 +180,11 @@
               }
             });
       };
-
+      //CHANGE ORIGIN FROM PLACEID TO CURRENT COORDINATES
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"
-        async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"></script>
       
-  
+
 </body>
 
 </html>
