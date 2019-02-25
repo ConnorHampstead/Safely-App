@@ -54,7 +54,7 @@
         border: none;
         font-size: 115%;
     }
-    button[type=signUp] {
+    button[id=signUp] {
         border-radius: 15px;
         border: 100% black;
         padding: 2%; 
@@ -67,7 +67,7 @@
     #password,#email{
         border-radius: 6px;       
     }
-    button[id=login] {
+    button[id="login"] {
         border-radius: 10px;
         border: 2% solid #73AD21;
         padding: 2%; 
@@ -85,21 +85,21 @@
     }
 </style>
 </head>
-
 <script type="text/javascript">
-    function validateForm(){
-        var email = document.getElementById("email").value;
-        var passowrd = document.getElementById("passowrd").value;
-        if (cardcardno.match("email") && (passowrd.match("pass"))){
-                alert("You have successfully logged in.");
+    function validateForm () {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    /*    if ( //email exists  ) {
+            if ( //password matches  ) {
+                
+            } else {
+                alert("Error - Email or Password do not match")
             }
-        else{
-            alert("Please check you have entered valid details");
-            return false;
-            }
+        } else {
+            alert("Error - Email or Password do not match")
+        } */
     }
 </script>
-
 <body>
     <script type="text/javascript" src="cordova.js"></script>
 
@@ -107,11 +107,11 @@
         <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
     </div>
 
-    <form onsubmit= "validateForm();return false;">
+    <form onsubmit= "validateForm(); return false;">
         <div class="loginForm">
             <input id="email" type="text" placeholder="Email" name="email" >
             <input id="password" type="password" placeholder="Password" name="password" >
-            <button class="signup" type="signUp"><a href="#SignUp"></a>Sign up</button>
+            <button onClick="document.location.href = 'signUp.html'" type="button" id="signUp" ></a>Sign up</button>
             <button type="submit" id="login">Log In</a></button> 
         </div>
     </form>
