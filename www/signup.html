@@ -5,96 +5,13 @@
 
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
-   <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+   <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <title>Sign Up</title>
-    <style type="text/css">
-      body {
-      	background-color: #ff9933;
-      	background-image: none;
-      }
 
-      .SignUp {
-        color: black;
-        margin-right: 7.5%;
-        float: right;
-        text-align: center;
-        width: 85%;
-        font-size: 150%;
-        padding-top: 1.25%;
-        padding-bottom: 1.25%;
-        font-family: 'Source Sans Pro', sans-serif;
-      }
-      button {
-        background-color: #ff6600;
-        color: white;
-        border: none;
-        font-size:  80%;
-        font-family: 'Raleway', sans-serif;
-      }
-       input[type=text]{
-        width: 25%;
-        margin-top: 1.25%;
-        margin-bottom: 1.25%;
-        font-size: 80%;
-       }
-        input[type=text]:focus{
-            border: 3px solid #000;
-        }
-
-       #largeSafelyLogo {
-        max-width:57.7%;
-       }
-
-       .logo {
-        text-align:center;
-        margin: auto;
-        padding-top: 2%;
-       }
-
-      button:hover {
-      	filter: brightness(85%);
-        color: black;
-      }
-
-      .navbar {
-      	padding-top: 2%;
-      	width: 100%;
-      }
-
-
-      aside {
-      	float: right;
-      	margin:auto;
-      	margin-top: 10%;
-      	bottom:0;
-      }
-      label{
-        display:inline-block;
-        width:200px;
-        margin-right:30px;
-        text-align:right;
-      }
-      .signupForm{
-        border:none;
-        width:500px;
-        margin:0px auto;
-        
-      }
-      select{
-           width:220px;
-           height:27px;
-           top: 100%;
-           left: 0;
-           right: 0;
-           z-index: 99;
-      }
-
-    </style>
     <script>src='https://google.com/recaptcha/api.js'</script>
     <script type="text/javascript">
       function CheckValid(){
-
 
       }
       function ChangeSpeed(){
@@ -107,6 +24,7 @@
 
       }
     </script>
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:500,700i|Source+Sans+Pro:300" rel="stylesheet">
 </head>
 
@@ -115,33 +33,36 @@
 	<div class="logo">
         <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
     </div>
+
     <div class = "SignUp">
       <h1 style="font-size: 1.5em;">Sign Up</h1>
       <div class = "signupForm">
         <label for="Email">Email:</label>
         <input id = "Email" type ="text"  style="width: auto;" ><br>
-        <label for="Username">Username:</label>
-        <input id = "Username" type ="text"  style="width: auto;" ><br>
+
+        <label for="FirstName">First Name:</label>
+        <input id = "FirstName" type ="text"  style="width: auto;" ><br>
+
+        <label for="LastName">Last Name:</label>
+        <input id = "LastName" type ="text" style="width: auto;"><br>
+
         <label for="Password">Password:</label>
         <input id = "Password" type ="text" style="width: auto;"><br>
+
         <label for="Confirm Password">Confirm Password:</label>
         <input id = "Confirm Password" type ="text" style="width: auto;"><br>
+
         <label for="Phone">Phone number:</label>
         <input id = "Phone" type ="text"  style="width: auto;" ><br>
-        <label for="Security">Security Question:</label>
-        <select id="Security" >
-          <option value="Pet">First Pet Name</option>
-          <option value="City">City of birth</option>
-          <option value="Color">Favorite Color</option>
-        </select>
-        <label for="Answer">Answer:</label>
-        <input id = "Answer" type ="text"  style="width: auto;" ><br>
-        <div class="g-recaptcha" data-sitekey="6Lc3bpIUAAAAAE4ovsGeowXVnpLjDrt_ZulLX65G"></div><br>
-        <input id="gdprCheck" type="checkbox" required>
-        By clicking ticking the checkbox,<br> you agree to our <a href="termsAndConditions.html">Terms and Conditions</a> <br>and our <a href="privacyPolicy.html">Privacy Policy</a>
-        <div class="policy">
+      </br>
+
+        <input id="gdprCheck" style="font-size:20px;" type="checkbox" required>
+        Check here to indicate that you have read and agree to the terms of Safely's <a href="privacyPolicy.html">Privacy Policy</a>
+      </br>
+    </br>
+
     </div>
-        <button type= "submit" onclick="CheckValid()" style="background-color:#ffa500;">SIGN UP</button>
+        <button id="signupbtn" type= "submit" onclick="CheckValid()">SIGN UP</button>
       </div>
     </div>
 </body>
