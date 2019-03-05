@@ -1,0 +1,31 @@
+CREATE TABLE `user` (
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `Email` varchar(320) DEFAULT NULL,
+  `firstName` varchar(35) DEFAULT NULL,
+  `lastName` varchar(35) DEFAULT NULL,
+  `password` varchar(24) DEFAULT NULL,
+  `phoneNumber` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `usercontacts` (
+  `userID` int(11) NOT NULL,
+  `contactID` int(11) NOT NULL,
+  `contactName` varchar(35) DEFAULT NULL,
+  `contactNumber` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`userID`,`contactID`),
+  CONSTRAINT `userID2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `userlocation` (
+  `userID` int(11) NOT NULL,
+  `location` varchar(19) DEFAULT NULL,
+  PRIMARY KEY (`userID`),
+  CONSTRAINT `userID3` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `usersettings` (
+  `userID` int(11) NOT NULL,
+  `safetyLevel` varchar(10) DEFAULT NULL,
+  `walkingSpeed` varchar(9) DEFAULT NULL,
+  PRIMARY KEY (`userID`),
+  KEY `userID_idx` (`userID`),
+  CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
