@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 		$emailCheck = mysqli_fetch_array(mysqli_query($conn, $sql));
 		if (isset($emailCheck)){
-			$_SESSION['message'] = "Email already exist";
+			$_SESSION['message'] = "An account with that email already exists";
 		} else{
 			$_SESSION['email'] = $email;
 			$sql = "INSERT INTO user(email, firstName, lastName, phoneNumber, password) VALUES('$email', '$first_name', '$last_name', '$phone_num', '$password')";
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			}
 		}
 	} else{
-		$_SESSION['message'] = "The password and confirm password do not match";
+		$_SESSION['message'] = "The passwords you have entered do not match";
 	}
 
 	
