@@ -12,24 +12,21 @@
 </head>
 
 <body>
-  <div class="logo">
+    <div class="logo">
         <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
     </div>
 
     <div class="navbar">
         <ul>
-          <li><a href="index.html">My Account</a></li>
-          <li><a href="http://localhost:1234/phptesting/SettingsPHP/settings.php">Settings</a></li> 
-          <!--  EMULATOR ADDRESS is different as requires 10.0.2.2:localport mine is 1234-->
+          <li><a href="#My Account">My Account</a></li>
+          <li><a href="settings.html">Settings</a></li>
           <li><a href="#Contact">Contact</a></li>
           <li style="float:right"><a href="login.html">Log Out</a></li>
-          <li style="float:right"><a href="privacyPolicy.html">Policy</a></li>
+          <li style="float:right"><a href="#Policy">Policy</a></li>
         </ul>
     </div>
 
     <div style="display: none">
-        <input id="origin-input" class="controls" type="text"
-            placeholder="Enter an origin location">
 
         <input id="destination-input" class="controls" type="text"
             placeholder="Enter a destination location">
@@ -95,33 +92,27 @@
        */
       function AutocompleteDirectionsHandler(map) {
         this.map = map;
-        this.originPlaceId = null;
+        //this.originPlaceId = null;
         this.destinationPlaceId = null;
         this.travelMode = 'WALKING';
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = new google.maps.DirectionsRenderer;
         this.directionsDisplay.setMap(map);
-
-        var originInput = document.getElementById('origin-input');
+        //var originInput = document.getElementById('origin-input');
         var destinationInput = document.getElementById('destination-input');
         var modeSelector = document.getElementById('mode-selector');
-
-        var originAutocomplete = new google.maps.places.Autocomplete(originInput);
+        //var originAutocomplete = new google.maps.places.Autocomplete(originInput);
         // Specify just the place data fields that you need.
-        originAutocomplete.setFields(['place_id']);
-
+        //originAutocomplete.setFields(['place_id']);
         var destinationAutocomplete =
             new google.maps.places.Autocomplete(destinationInput);
         // Specify just the place data fields that you need.
         destinationAutocomplete.setFields(['place_id']);
-
         this.setupClickListener('changemode-walking', 'WALKING');
         this.setupClickListener('changemode-driving', 'DRIVING');
-
-        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        //this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        //this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
             destinationInput);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
@@ -133,27 +124,23 @@
           id, mode) {
         var radioButton = document.getElementById(id);
         var me = this;
-
         radioButton.addEventListener('click', function() {
           me.travelMode = mode;
           me.route();
         });
       };
-
       AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
           autocomplete, mode) {
         var me = this;
         autocomplete.bindTo('bounds', this.map);
-
         autocomplete.addListener('place_changed', function() {
           var place = autocomplete.getPlace();
-
           if (!place.place_id) {
             window.alert('Please select an option from the dropdown list.');
             return;
           }
           if (mode === 'ORIG') {
-            me.originPlaceId = place.place_id;
+            //me.originPlaceId = place.place_id;
           } else {
             me.destinationPlaceId = place.place_id;
           }
@@ -162,14 +149,14 @@
       };
 
       AutocompleteDirectionsHandler.prototype.route = function() {
-        if (!this.originPlaceId || !this.destinationPlaceId) {
+        if (!this.destinationPlaceId) {
           return;
         }
         var me = this;
 
         this.directionsService.route(
             {
-              origin: {'placeId': this.originPlaceId},
+              origin: pos,
               destination: {'placeId': this.destinationPlaceId},
               travelMode: this.travelMode
             },
@@ -181,7 +168,7 @@
               }
             });
       };
-      //CHANGE ORIGIN FROM PLACEID TO CURRENT COORDINATES
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"></script>
       
