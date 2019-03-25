@@ -26,7 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$sql = "INSERT INTO user(email, firstName, lastName, phoneNumber, password) VALUES('$email', '$first_name', '$last_name', '$phone_num', '$password')";
 			if (mysqli_query($con, $sql)){
 				$_SESSION['message'] = "Registration successful";
-				header("location: index.html")
+				header("location: index.html");
+				$to = "$email";
+				$subject = "Welcome to Safely";
+				$message = "You have registered successfully.";
+				$from = "safe@safely.com";
+				$headers = "From:" . $from;
+
+				mail($to,$subject,$message,$headers)
+
 			} else{
 				$_SESSION['message'] = "Please try again";
 			}
