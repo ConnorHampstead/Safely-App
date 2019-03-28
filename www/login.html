@@ -52,6 +52,9 @@
             return false;
             }
     }
+    function redirect (new_location) {
+        window.location.href = new_location;
+    }
 </script>
 
 <body>
@@ -61,11 +64,11 @@
         <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
     </div>
 
-    <form onsubmit= "validateForm();return false;">
+    <form action = "login.php">
         <div class="loginForm">
             <input id="email" type="text" placeholder="Email" name="email" >
             <input id="password" type="password" placeholder="Password" name="password" >
-            <button class="signup" type="signUp"><a href="#SignUp"></a>Sign up</button>
+            <button type="button" onclick="redirect('signUp.html')"></a>Sign up</button>
             <button type="submit" id="login">Log In</a></button> 
         </div>
     </form>
