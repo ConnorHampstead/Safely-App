@@ -14,80 +14,77 @@
  
 </head>
 
-<body>
+<body onload="fillSettings()">
 
 	<div class="logo">
         <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
     </div>
 
     <div class = "Settings">
-      <h1 style="font-size: 1.2em;background-color: #ff6600">SETTINGS</h1>
-      
-      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Personal settings</p>
-      <div class="personalsettings">
-      	<p>Name Surname</p> <!-- get from database-->
-      	<p>Phone #: 0784563213 </p> <!--get from DB-->
-      	<button type= "button" onclick="edit()" style="background-color:#33cc33; margin-top: 2%";>Edit</button>
+      <div class = "EmergencyContacts">
+        <h1>Emergency Contacts</h1>
+        <p id="ErrorMessage">No contacts found! Add contacts below</p>
+        <button style="background-color: #33cc33;" onclick="AddContact()">Add</button>
+        <button style="background-color: #ff3300;" onclick="DeleteContact()">Remove</button>
       </div>
+      <br>
 
-      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Saved Addresses</p>
-      <div class = "Addresses">
-        <p>123 Abcd Street CF12 3AB</p> <!-- need to link this to database -->
-        
-        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33; margin-top: 2%";>Add</button>
-        <button type="button" onclick="CheckNumber()" style="background-color:#ff3300;">Delete</button><br>
-      </div>
-
-      <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Emergency Contacts</p>
-      <div class = "Emergencycontact">
-        <p id = "ContactName" style="display: inline;">Mum: </p><p id = "ContactNumber" style="display: inline;">0724552422</p><br> <!-- need to link this to database -->
-        
-        <button type= "button" onclick="CheckNumber()" style="background-color:#33cc33; margin-top: 2%";>Add</button>
-        <button type="button" onclick="CheckNumber()" style="background-color:#ff3300;">Delete</button><br>
-      </div>
-
-      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Walking Speed</p>
       <div class = "WalkingSpeed">
-        <select id = "Speed">
-          <option value="Speed1">1</option>
-          <option value="Speed2">2</option>
-          <option value="Speed3">3</option>
-          <option value="Speed4">4</option>
-          <option value="Speed5">5</option>
+        <h1>Walking Speed</h1>
+        <select name="WalkingSpeed" id="WalkingSpeed">
+          <optgroup>
+            <option value="1">Default</option>
+            <option value="2">Slowest (-25%)</option>
+            <option value="3">Slow (-15%)</option>
+            <option value="4">Fast (+15%)</option>
+            <option value="5">Fastest (+25%)</option>
+          </optgroup>
         </select>
-        <button type= "button" onclick="ChangeSpeed()" >Change</button><br>
       </div>
+      <br>
 
-      <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Safety Rating</p>
-      <form class = "SafetyRating" method = "POST" action = "login.html" >
-        <select id = "Safety" name = "Safety">
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
+      <div class = "SafeRoute">
+        <h1>Safe Route</h1>
+        <select name="SafeRoute" id="SafeRoute">
+          <optgroup>
+            <option value="Off">Off (Shortest Route)</option>
+            <option value="On">On (Safer Route)</option>
+          </optgroup>
         </select>
-        <button type= "submit" value="Open Script" >Change</button><br/>
-      </form>
+      </div>
     </div>
     
-    <aside>
-      <button class="terms" type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
-    </aside>
+    
+    <button onclick = "history.back()">Back</button> 
+    <button onclick = "redirect('privacypolicy.html')">Privacy Policy</button>
+
 
     <script type="text/javascript">
-      function CheckNumber(){
+      function redirect (page) {
+        window.location.href=page;
+      }
+
+      function DisplayContacts () {
 
       }
-      function ChangeSpeed(){
+
+      function AddContact () {
 
       }
-      function ChangeSafety(){
+
+      function DeleteContact () {
 
       }
-      function ShowTCs(){
+
+      function GetContacts () {
 
       }
+
+      function FillSettings () {
+        // Check for what information the user has stored on the server,
+        // fill it using DOM. Delete error message.
+      }
+
     </script>
 </body>
 

@@ -1,72 +1,98 @@
 <!DOCTYPE html>
- <html>
+<html>
 <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <title>Sign Up</title>
+  <style type="text/css">
+  #largeSafelyLogo {
+    max-width:57.7%;
+  }
 
-   <link rel="stylesheet" type="text/css" href="css/index.css" />
+  #signUpForm {
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-right: 7.5%;
+    float: right;
+    text-align: center;
+    width: 85%;
+    background-color: white;
+    padding-top: 1.4%;
+    padding-bottom: 1.25%;
+  }
 
-    <title>Sign Up</title>
+  p {
+    font-size:130%;
+  }
 
-    <script>src='https://google.com/recaptcha/api.js'</script>
-    <script type="text/javascript">
-      function CheckValid(){
+  input[type=text], input[type=password] {
+    width: 92%;
+    margin-top: 1.25%;
+    margin-bottom: 1.25%;
+    font-size: 115%;
+  }
 
-      }
-      function ChangeSpeed(){
+  .logo {
+    text-align:center;
+    margin: auto;
+    padding-top: 2%;
+  }
+  #safelyTitle {
+    width:47%;
+    margin-top:10px;
+    float: left;
+    margin-left: 26.5%;
+  }
 
-      }
-      function ChangeSaftey(){
+  body {
+    background-color: #ff9933;
+    background-image: none;
+  }
 
-      }
-      function ShowTCs(){
+</style>
 
-      }
-    </script>
+<script src='https://google.com/recaptcha/api.js'>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500,700i|Source+Sans+Pro:300" rel="stylesheet">
+</script>
+<script type="text/javascript">
+    function redirect (new_location) {
+        window.location.href = new_location;
+    }
+  
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:500,700i|Source+Sans+Pro:300" rel="stylesheet">
 </head>
 
 <body>
 
-	<div class="logo">
-        <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
-    </div>
+	
+  <div class="logo">
+    <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
+  </div>
+  <form action="signup.php" id="signUpForm" method="POST">
+    <input name = "Email" type = "text" placeholder="Email" required/><br>
+    <input name = "FirstName" type ="text" placeholder="First name" required/><br>
+    <input name = "LastName" type ="text" placeholder="Last name" required/><br>
+    <input name = "Password" type ="password" placeholder="Password" required/><br>
+    <input name = "Confirm Password" type ="password" placeholder="Confirm Password" required/><br>
+    <input name = "Phone" type ="text" placeholder="Phone number"/><br>
+    <br>
 
-    <div class = "SignUp">
-      <h1 style="font-size: 1.5em;">Sign Up</h1>
-      <div class = "signupForm">
-<form action="signup.php" method="POST">
-        <label for="Email">Email:</label>
-        <input name = "Email" type ="text"  style="width: auto;" required/><br>
+    <input id = "gdprCheck" style = "font-size:20px;" type = "checkbox" required>
+    Check here to indicate that you have read and agree to the terms of Safely's <a href="privacyPolicy.html">Privacy Policy</a>
+  </br>
+</br>
 
-        <label for="FirstName">First Name:</label>
-        <input name = "FirstName" type ="text"  style="width: auto;" required/><br>
-
-        <label for="LastName">Last Name:</label>
-        <input name = "LastName" type ="text" style="width: auto;" required/><br>
-
-        <label for="Password">Password:</label>
-        <input name = "Password" type ="text" style="width: auto;" required/><br>
-
-        <label for="Confirm Password">Confirm Password:</label>
-        <input name = "Confirm Password" type ="text" style="width: auto;" required/><br>
-
-        <label for="Phone">Phone number:</label>
-        <input name = "Phone" type ="text"  style="width: auto;" ><br>
-      </br>
-
-        <input id="gdprCheck" style="font-size:20px;" type="checkbox" required>
-        Check here to indicate that you have read and agree to the terms of Safely's <a href="privacyPolicy.html">Privacy Policy</a>
-      </br>
-    </br>
-
-    </div>
-        <button id="signupbtn" type= "submit" onclick="CheckValid()">SIGN UP</button>
-      </div>
+</div>
+<button id="signupbtn" type= "submit">Sign Up</button>
+<button type="button" onclick="redirect('login.html')"></a>Log in</button>
+</div>
 </form>
-    </div>
+<img id="safelyTitle" src="img/Safely Title.png" alt="Safely">
+</div>
 </body>
 
 </html>

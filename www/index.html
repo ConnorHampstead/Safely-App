@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+	<title>Loading Screen</title>
+	<meta charset= "utf-8">
+	<meta name="viewport" content="initial-scale = 1, maximum-scale = 1, user-scalable = no, width = device-width, height = device-height">
+	<style>
 
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-
-    <title>Safely</title>
-
+	body {
+		background-color: #ff9933;
+	}
+</style>
+<script type="text/javascript">
+	function redirect () {
+		// if no user session:
+        //window.location.href = "login.html"
+        // else if user session found:
+        window.location.href = "destinationEntry.html";
+	}
+</script>
 </head>
+<<<<<<< HEAD
+
+<style> 
+.btn {
+	background-color: red;
+	color: white;
+	display: inline-block;
+}
+</style>
 
 <body>
     <div class="logo">
@@ -38,6 +56,8 @@
           <input type="radio" name="type" id="changemode-driving">
           <label for="changemode-driving">Driving</label>
         </div>
+
+        <button type="button" class="btn panic">Panic</button>
     </div>
 
     <div id="map"></div>
@@ -172,7 +192,9 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"></script>
       
+=======
+<body onload="redirect()">
+>>>>>>> 768a07457f03843419e392bcb2a42d21c7e8df3d
 
 </body>
-
 </html>
