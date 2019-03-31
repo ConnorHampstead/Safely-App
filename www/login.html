@@ -43,8 +43,8 @@
 <script type="text/javascript">
     function validateForm(){
         var email = document.getElementById("email").value;
-        var passowrd = document.getElementById("passowrd").value;
-        if (cardcardno.match("email") && (passowrd.match("pass"))){
+        var password = document.getElementById("passowrd").value;
+        if (cardcardno.match("email") && (password.match("pass"))){
                 alert("You have successfully logged in.");
             }
         else{
@@ -68,7 +68,7 @@
         <div class="loginForm">
             <input id="email" type="text" placeholder="Email" name="email" >
             <input id="password" type="password" placeholder="Password" name="password" >
-            <button type="button" onclick="redirect('signUp.html')"></a>Sign up</button>
+            <button type="button" onclick="redirect('signup.html')"></a>Sign up</button>
             <button type="submit" id="login">Log In</a></button> 
         </div>
     </form>

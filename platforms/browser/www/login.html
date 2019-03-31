@@ -3,23 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
-    <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Login - Safely</title>
 
     <style>
-    body {
-        background-color: #ff9933;
-    }
-    #largeSafelyLogo {
-        max-width:57.7%;
-    }
-    .login{
-        font-color:red;
-    }
+
     .logo {
         text-align:center;
         margin-top:20%;
     }
+    
     .loginForm {
         border-radius: 10px;
         margin-top: 5%;
@@ -39,64 +32,28 @@
     }
     input[type=text], input[type=password] {
         width: 92%;
-        margin-top: 1
-        .25%;
+        margin-top: 1.25%;
         margin-bottom: 1.25%;
         font-size: 115%;
     }
-    .button:hover { 
-        background-color: teal; /* Green */
-        color: white;
-        filter: brightness(10%); }
-    button {
-        background-color: #ff6600;
-        color: white;
-        border: none;
-        font-size: 115%;
-    }
-    button[type=signUp] {
-        border-radius: 15px;
-        border: 100% black;
-        padding: 2%; 
-        width: 25%;
-        height: 15%;
-        float: center;
-        margin-left: 4%;
-        text-align: center;
-    }
-    #password,#email{
-        border-radius: 6px;       
-    }
-    button[id=login] {
-        border-radius: 10px;
-        border: 2% solid #73AD21;
-        padding: 2%; 
-        width: 25%;
-        height: 15%;
-        float: center;
-        margin-right: 4%;
-        text-align: center;
-    }
-    .policy{
-        float:center;
-        font-color:red;
-        text-align: center;
-        font-size: 112%;
-    }
+
 </style>
 </head>
 
 <script type="text/javascript">
     function validateForm(){
         var email = document.getElementById("email").value;
-        var passowrd = document.getElementById("passowrd").value;
-        if (cardcardno.match("email") && (passowrd.match("pass"))){
+        var password = document.getElementById("passowrd").value;
+        if (cardcardno.match("email") && (password.match("pass"))){
                 alert("You have successfully logged in.");
             }
         else{
             alert("Please check you have entered valid details");
             return false;
             }
+    }
+    function redirect (new_location) {
+        window.location.href = new_location;
     }
 </script>
 
@@ -107,11 +64,11 @@
         <img id="largeSafelyLogo" src="img/Safely Logo.png" alt="Safely Logo">
     </div>
 
-    <form onsubmit= "validateForm();return false;">
+    <form action = "login.php">
         <div class="loginForm">
             <input id="email" type="text" placeholder="Email" name="email" >
             <input id="password" type="password" placeholder="Password" name="password" >
-            <button class="signup" type="signUp"><a href="#SignUp"></a>Sign up</button>
+            <button type="button" onclick="redirect('signup.html')"></a>Sign up</button>
             <button type="submit" id="login">Log In</a></button> 
         </div>
     </form>

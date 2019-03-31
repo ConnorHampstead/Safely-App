@@ -23,7 +23,13 @@
         $PHnumber = $row['phoneNumber'] ;
     }
 	
-
+    $sql2 = "SELECT * FROM usercontacts where userID = 1;";
+    $result2 = $conn->query($sql2);
+    while($row = $result2->fetch_assoc()) {
+    	$contactID = $row['contactID'];
+    	$contactName = $row['contactName'];
+    	$contactNumber = $row['contactNumber'];
+    }
 	
 	 // document.getElementById('LName').value ==  'Orr' ;
 
@@ -34,7 +40,9 @@
 	$_SESSION['lastName'] = $lastName;
 	$_SESSION['PHnumber'] = $PHnumber;
     //echo $_SESSION['PHnumber'];
-
+	$_SESSION['contactID'] = $contactID;
+	$_SESSION['contactName'] = $contactName;
+	$_SESSION['contactNumber'] = $contactNumber;
 
     
 

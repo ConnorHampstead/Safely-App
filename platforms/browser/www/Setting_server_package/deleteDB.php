@@ -12,9 +12,9 @@
 // check connection
 	if (mysqli_connect_error()){
 		die('Connect Error ('.mysql_connect_errno().')'.mysqli_connect_error());
-	}else{
-		echo "Connected"."<br>";
-	}
+	}//else{
+		//echo "Connected"."<br>";
+	//}
 	$sql = "SELECT * FROM usercontacts "; //You don't need a ; like you do in SQL
 	$result = $conn->query($sql);
 	/*while($row = $result->fetch_assoc()) {
@@ -27,11 +27,23 @@
 <html>
 <head>
 	<title>Select Contact to Delete</title>
+	<meta charset="utf-8" />
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
 </head>
 <body>
-	<form class = "WalkingSpeed" method = "post" action = "delete.php"  >
-	  <select id = "delete" name = "delete">
-		
+	<div class="logo">
+        <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
+    </div>
+    <br>
+	<div class = "Settings">
+	<p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Choose a contact to delete</p>
+	<form class = "Emergencycontact" method = "post" action = "delete.php"  >
+	<select id = "delete" name = "delete">
+
         
 		<?php 
 
@@ -43,8 +55,8 @@
 
 
 	  </select>
-	  <button type= "submit" value="Open Script"" >Delete</button><br>
+	  <button type= "submit" value="Open Script" style="background-color:#ff3300;" >Delete</button><br>
     </form>
-
+	</div>
 </body>
 </html>

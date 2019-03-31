@@ -16,7 +16,7 @@
 
 <body onload="fillSettings()">
 
-	<div class="logo">
+  <div class="logo">
         <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
     </div>
 
@@ -27,22 +27,6 @@
         <button style="background-color: #33cc33;" onclick="AddContact()">Add</button>
         <button style="background-color: #ff3300;" onclick="DeleteContact()">Remove</button>
       </div>
-      <br>
-
-      <div class = "WalkingSpeed">
-        <h1>Walking Speed</h1>
-        <select name="WalkingSpeed" id="WalkingSpeed">
-          <optgroup>
-            <option value="1">Default</option>
-            <option value="2">Slowest (-25%)</option>
-            <option value="3">Slow (-15%)</option>
-            <option value="4">Fast (+15%)</option>
-            <option value="5">Fastest (+25%)</option>
-          </optgroup>
-        </select>
-      </div>
-      <br>
-
       <div class = "SafeRoute">
         <h1>Safe Route</h1>
         <select name="SafeRoute" id="SafeRoute">
@@ -51,12 +35,15 @@
             <option value="On">On (Safer Route)</option>
           </optgroup>
         </select>
+      <br>
       </div>
+        <br>
+        <button  id = "privButton" onclick = "redirect('privacyPolicy.html')">Privacy Policy</button>    
+    <button onclick = "redirect('login.html')">Sign Out</button> 
     </div>
     
-    
-    <button onclick = "history.back()">Back</button> 
-    <button onclick = "redirect('privacypolicy.html')">Privacy Policy</button>
+
+
 
 
     <script type="text/javascript">

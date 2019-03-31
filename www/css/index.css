@@ -62,13 +62,20 @@ li a:hover:not(.active) {
 
 #map {
   width: calc(100% - 20px);
-  height: 70%;
+  height: 63%;
   float:left;
   position: absolute;
   border-style:solid;
   border-width:2%;
   border-color:white;
   border-radius:2%;
+}
+
+#panicButtonContainer{
+  position: absolute;
+  width: calc(100% - 20px);
+  height: 30%;
+  float: center;
 }
 
 #origin-input,
@@ -145,6 +152,27 @@ li a:hover:not(.active) {
   height:20%;
 }
 
+#panicButton {
+  border-color: #f44336;
+  color: red;
+  font-size:100%;
+  font-weight:bold;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  display:block;
+  height: 15%;
+  width: 25%;
+  border-radius: 50%;
+  border: 10px solid red;
+  margin-left:40.5%;
+  margin-bottom: 1%
+}
+
+#privButton{
+  width: 45%;
+}
+
 
 input[type=text]{
   width: 25%;
@@ -163,9 +191,6 @@ input[type=text]{
   padding-top: 2%;
 }
 
-button:hover { 
-  filter: brightness(85%); 
-}
 
 button {
   background-color: #ff6600;
