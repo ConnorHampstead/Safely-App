@@ -78,7 +78,6 @@ li a:hover:not(.active) {
   float: center;
 }
 
-#origin-input,
 #destination-input {
   background-color: #fff;
   font-family: Roboto;
@@ -90,7 +89,6 @@ li a:hover:not(.active) {
   width: 30%;
 }
 
-#origin-input:focus,
 #destination-input:focus {
   border-color: #4d90fe;
 }
@@ -106,6 +104,13 @@ li a:hover:not(.active) {
   font-family: Roboto;
   font-size: 100%;
   font-weight: 300;
+}
+
+input[type=text]:not(.map-input){
+width: 25%;
+margin-top: 1.25%;
+margin-bottom: 1.25%;
+font-size: 80%;
 }
 
 .Settings {
