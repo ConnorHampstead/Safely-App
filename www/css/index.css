@@ -71,12 +71,32 @@ li a:hover:not(.active) {
   border-radius:2%;
 }
 
-#panicButtonContainer{
+
+#panicButtonContainer {
   position: absolute;
   width: calc(100% - 20px);
   height: 30%;
   float: center;
 }
+
+#panicButtonContainer input {
+  border-color: #f44336;
+  color: red;
+  font-size:100%;
+  font-weight:bold;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  display:block;
+  height: 15%;
+  width: 25%;
+  border-radius: 50%;
+  border: 10px solid red;
+  margin-left:40.5%;
+  margin-bottom: 1%
+}
+}
+
 
 #destination-input {
   background-color: #fff;
