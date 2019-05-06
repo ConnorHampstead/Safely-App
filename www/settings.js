@@ -1,12 +1,12 @@
 "use strict";
 
-function hideElement(elementId) {
-    document.getElementById(elementId).style.display = 'none';
+function setDisplayStyleOf(elementId, style) {
+    document.getElementById(elementId).style.display = style;
 }
 
 function clearTableRows(table) {
-    for(var i = table.rows.length; i > 0; i--){
-        table.deleteRow(i - 1);
+    for(var i = table.rows.length - 1; i > 0; i--){
+        table.deleteRow(i);
     }
 }
 
@@ -36,11 +36,13 @@ function onSettingsLoaded() {
     var table;
 
     if(contacts !== null && contacts.length > 0) {
-        hideElement("ErrorMessage");
+        setDisplayStyleOf("contacts-table", "table");
+        setDisplayStyleOf("ErrorMessage", "none");
         table = document.querySelector("#contacts-table");
         populateContactsTable(table, JSON.parse(contacts));
     } else {
-        hideElement("contacts-table");
+        setDisplayStyleOf("ErrorMessage", "block");
+        setDisplayStyleOf("contacts-table", "none");
     }
 }
 
