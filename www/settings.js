@@ -4,9 +4,15 @@ function hideElement(elementId) {
     document.getElementById(elementId).style.display = 'none';
 }
 
+function clearTableRows(table) {
+    for(var i = table.rows.length; i > 0; i--){
+        table.deleteRow(i - 1);
+    }
+}
+
 function populateContactsTable(table, contacts) {
 
-    console.log(contacts);
+    clearTableRows(table);
 
     // For each item in 'contacts' add a new row to the table
     for(var i=0; i < contacts.length; i++){
@@ -36,6 +42,12 @@ function onSettingsLoaded() {
     } else {
         hideElement("contacts-table");
     }
+}
+
+function removeAll(){
+    localStorage.clear();
+    alert("Items removed!");
+    onSettingsLoaded();
 }
 
 window.addEventListener('DOMContentLoaded', onSettingsLoaded);
