@@ -95,7 +95,7 @@ li a:hover:not(.active) {
   margin-left:40.5%;
   margin-bottom: 1%
 }
-}
+
 
 
 #destination-input {
@@ -293,4 +293,11 @@ p {
 
 .gdprCheck {
   font-size: 12px !important;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+th{
+  color: #000;
 }
