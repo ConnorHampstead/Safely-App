@@ -15,28 +15,21 @@
 
     <button id="settingsButton" type="button" style="height:50px;" onclick="openSettings()">SETTINGS</button><br><br>
 
-    <div id="completemap">
-      <div class="map-input" style="display: none">
+    <div class="map-input">
 
-          <input id="destination-input" class="controls" type="text"
-              placeholder="Enter a destination location">
+      <input id="destination-input" class="controls" type="text"
+        placeholder="Enter a destination location">
 
-          <div id="mode-selector" class="controls">
-            <input type="radio" name="type" id="changemode-walking" checked="checked">
-            <label for="changemode-walking">Walking</label>
-
-            <input type="radio" name="type" id="changemode-driving">
-            <label for="changemode-driving">Driving</label>
-          </div>
-      </div>
-      <div id="map"></div>
     </div>
+    <div id="map" style="z-index = -1"></div>
+    <div id="duration" style="z-index = 1"></div>
 
     <div id="panicButtonContainer">
       <form action = "panic.php">
         <input type="submit" value= "ACTIVATE PANIC">
       </form>
     </div> 
+
 
 
     <script>
@@ -49,7 +42,8 @@
         var map = new google.maps.Map(document.getElementById('map'), {
           //mapTypeControl: false,
           center: {lat: 51.489093, lng: -3.177371}, //CHANGE TO CURRENT LAT AND LNG
-          zoom: 15
+          zoom: 15,
+          mapTypeControl: false
         });
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -137,7 +131,8 @@
             function(response, status) {
               if (status === 'OK') {
                 me.directionsDisplay.setDirections(response);
-                $( '#travel_data' ).html( 'Estimated travel time: ' + point.duration.text + ' (' + point.distance.text + ')' );
+                document.getElementById('duration').innerHTML += "Duration: " + Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
+
               } else {
                 window.alert('Directions request failed due to ' + status);
               }

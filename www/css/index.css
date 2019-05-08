@@ -60,9 +60,6 @@ li a:hover:not(.active) {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#completemap {
-
-}
 
 #map {
   width: calc(100% - 20px);
@@ -73,12 +70,9 @@ li a:hover:not(.active) {
   border-width:2%;
   border-color:white;
   border-radius:2%;
+  margin-top: 3%;
 }
 
-
-#panicButtonContainer {
-  
-}
 
 #panicButtonContainer input {
   border-color: #f44336;
@@ -93,21 +87,35 @@ li a:hover:not(.active) {
   width: 250px;
   border-radius: 50%;
   border: 10px solid red;
-  margin-left:40.5%;
+  margin-left: 20%;
   margin-bottom: 1%
 }
 
 
 #destination-input {
+  position: fixed;
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 50px;
-  margin-top: 35px;
+  margin-left: 10%;
+  margin-top: 2%;
   padding: 0 25px 0 13px;
   text-overflow: ellipsis;
-  width: 30%;
+  width: 47%;
+}
+
+#duration {
+  position: absolute;
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 88%;
+  margin-left: 35%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 25px;
+
 }
 
 #destination-input:focus {
