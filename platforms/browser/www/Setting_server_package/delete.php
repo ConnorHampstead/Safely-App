@@ -1,9 +1,10 @@
 <?php 
+ session_start();
 	$dbServerName = "localhost";
 	$dbUserName = "App";
 	$dbPassword = "orange";
 	$dbName = "new_schema";
-	$userID = 1;
+	$userID = $_SESSION['userID'];
 	
 	$conn = new mysqli($dbServerName,$dbUserName,$dbPassword,$dbName);
 

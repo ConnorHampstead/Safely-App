@@ -33,11 +33,54 @@
 
 
     <script>
-
       var infoWindow;
       function openSettings () {
         window.location.href="settings.html";
       }
+
+      
+
+    //fire when device plugged in/not plugged in
+    navigator.getBattery().then(function(battery) {
+        battery.onchargingchange = function() {
+            console.log("testing the battery plugin fires correctly - copy curr battery level to console upon charging/not charging " +this.level);
+        };
+    });
+
+    //monitor for low battery
+    window.addEventListener("batterylow", onBatteryLow, false);
+
+    //monitor device connetion to wi-fi
+    window.addEventListener("offline", onOffline, false);
+
+    //montitor for critical battery
+    window.addEventListener("batterycritical", onBatteryCritical, false);
+
+    //monitor for re-connect to wifi
+    window.addEventListener("online", onOnline, false);
+
+    //send sms when battery low
+    function onBatteryLow(status) {
+      console.log("battery level is" + status.level);
+    }
+
+    //sms to emergency conact on battery low
+    function onBatteryCritical(status) {
+        console.log("The battery is at critical level" + status.level)
+
+    }
+
+    // Handle the offline event -sms to contacts
+    function onOffline() {
+        console.log("The device has gone offline");
+    }
+    // Handle the offline event -sms to contacts
+    function onOnline() {
+        console.log("The device is back online");
+    }
+    //needs to send time/location to police or emergency contact
+    function Panicbutton () {
+    }
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           //mapTypeControl: false,
@@ -87,7 +130,6 @@
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = new google.maps.DirectionsRenderer;
         this.directionsDisplay.setMap(map);
-
         var destinationInput = document.getElementById('destination-input');
         var destinationAutocomplete =
             new google.maps.places.Autocomplete(destinationInput);
@@ -99,7 +141,6 @@
       }
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
-
       AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
           autocomplete, mode) {
         var me = this;
@@ -111,7 +152,6 @@
             return;
           }
           if (mode === 'ORIG') {
-
           } else {
             me.destinationPlaceId = place.place_id;
           }
@@ -123,7 +163,6 @@
           return;
         }
         var me = this;
-
         this.directionsService.route(
             {
               origin: pos,
@@ -134,13 +173,11 @@
               if (status === 'OK') {
                 me.directionsDisplay.setDirections(response);
                 document.getElementById('duration').innerHTML += "Duration: " + Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
-
               } else {
                 window.alert('Directions request failed due to ' + status);
               }
             });
       };
-
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"></script>
       

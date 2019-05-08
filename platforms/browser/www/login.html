@@ -66,10 +66,10 @@
 
     <form action = "login.php">
         <div class="loginForm">
-            <input id="email" type="text" placeholder="Email" name="email" >
+             <input id="email" type="text" placeholder="Email" name="email" >
             <input id="password" type="password" placeholder="Password" name="password" >
-            <button type="button" onclick="redirect('signup.html')"></a>Sign up</button>
-            <button type="submit" id="login">Log In</a></button> 
+            <button class="signup" type="signUp"  formmethod = "POST" formaction = "signup.html" ><a href="signup.html"></a>Sign up</button>
+            <button type = "submit" name = "Submit" formmethod = "POST" formaction = "http://localhost:1234/Setting_server_package/login2.php" id="login">Log In</a></button> 
         </div>
     </form>
     <img id="safelyTitle" src="img/Safely Title.png" alt="Safely">

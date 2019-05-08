@@ -1,5 +1,5 @@
 <?php
- 
+ 	 session_start();
   	$dbServerName = "localhost";
 	$dbUserName = "App";
 	$dbPassword = "orange";
@@ -15,8 +15,9 @@
 	$FName = $_POST['Fname'];
 	$LName = $_POST['Lname'];
 	$number = $_POST['phoneNumber'];
+	$userID = $_SESSION['userID'];
 
-    $sql = "UPDATE user Set firstName = '$FName', lastName = '$LName', phoneNumber = '$number' Where userID = 1 ;"; //You don't need a ; like you do in SQL
+    $sql = "UPDATE user Set firstName = '$FName', lastName = '$LName', phoneNumber = '$number' Where userID = $userID ;"; //You don't need a ; like you do in SQL
 	if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
 	} else {

@@ -1,9 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Login - Safely</title>
+
+    <style>
+
+    .logo {
+        text-align:center;
+        margin-top:20%;
+    }
+    
+    .loginForm {
+        border-radius: 10px;
+        margin-top: 5%;
+        margin-right: 7.5%;
+        float: right;
+        text-align: center;
+        width: 85%;
+        background-color: white;
+        padding-top: 1.4%;
+        padding-bottom: 1.25%;
+    }
+    #safelyTitle {
+        width:47%;
+        margin-top:10px;
+        float: left;
+        margin-left: 26.5%;
+    }
+    input[type=text], input[type=password] {
+        width: 92%;
+        margin-top: 1.25%;
+        margin-bottom: 1.25%;
+        font-size: 115%;
+    }
+
+</style>
+</head>
 <?php 
+ session_start();
 	$dbServerName = "localhost";
 	$dbUserName = "App";
 	$dbPassword = "orange";
 	$dbName = "new_schema";
-	$userID = 1;
+	$userID = $_SESSION['userID'];
 	
 	$conn = new mysqli($dbServerName,$dbUserName,$dbPassword,$dbName);
 
@@ -12,10 +54,10 @@
 // check connection
 	if (mysqli_connect_error()){
 		die('Connect Error ('.mysql_connect_errno().')'.mysqli_connect_error());
-	}//else{
-		//echo "Connected"."<br>";
-	//}
-	$sql = "SELECT * FROM usercontacts "; //You don't need a ; like you do in SQL
+	}else{
+		echo "Connected"."<br>";
+	}
+	$sql = "SELECT * FROM usercontacts WHERE userID = $userID; "; //You don't need a ; like you do in SQL
 	$result = $conn->query($sql);
 	/*while($row = $result->fetch_assoc()) {
 		echo $row['contactID'];
@@ -27,23 +69,11 @@
 <html>
 <head>
 	<title>Select Contact to Delete</title>
-	<meta charset="utf-8" />
-
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-
 </head>
 <body>
-	<div class="logo">
-        <img id="largeSafelyLogo" src="img/Safely Title.png" alt="Safely Logo">
-    </div>
-    <br>
-	<div class = "Settings">
-	<p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Choose a contact to delete</p>
-	<form class = "Emergencycontact" method = "post" action = "delete.php"  >
-	<select id = "delete" name = "delete">
-
+	<form class = "WalkingSpeed" method = "post" action = "delete.php"  >
+	  <select id = "delete" name = "delete">
+		
         
 		<?php 
 
@@ -55,8 +85,8 @@
 
 
 	  </select>
-	  <button type= "submit" value="Open Script" style="background-color:#ff3300;" >Delete</button><br>
+	  <button type= "submit" value="Open Script"" >Delete</button><br>
     </form>
-	</div>
+
 </body>
 </html>
