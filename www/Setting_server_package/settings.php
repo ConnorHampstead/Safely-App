@@ -13,28 +13,6 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <title>Settings</title>
-
-    <script type="text/javascript">
-
-      <!--
-      function CheckNumber(){
-      	var phoneNum = new RegExp(/07^[0-9]{9}$/);
-		if(!(document.Emergencycontact.phoneNumber.value).match(phoneNum)) {
-				alert("Incorrect number");
-				return false;
-			}
-      }
-      function ChangeSpeed(){
-
-      }
-      function ChangeSafety(){
-
-      }
-      function ShowTCs(){
-
-      }
-      //-->
-    </script>
  
 </head>
 
@@ -56,19 +34,32 @@
         <p>Number: <input type = "text" name = "phoneNumber" value=" <?php echo $_SESSION['PHnumber'] ?>" /></p>
         <p><button type = "submit" name = "Submit" formmethod = "POST" formaction = "UserEdit.php" style="background-color:#33cc33; margin-top: 2%" value="Edit" >Change</button></p>
       </form>
+     
+      
+     
 
       <p style="font-size:1em; background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Emergency Contacts</p>
-
-          <form class = "Emergencycontact" onsubmit="return CheckNumber(this);" >
-          <p><?php echo $_SESSION['contactName'], '  ' , $_SESSION['contactNumber'] ?></p> <br>
-          <p style="border-top: 1px dashed #ff6600; padding-top: 2%;"> Name: <input type = "text" name = "name" style="width: 40%;" /></p>
-          <p> Number: <input type = "text" name = "phoneNumber" maxlength="11" style="width: 30%;" /></p>
+      
+         <!-- need to link this to database -->
+        <form class = "Emergencycontact" >
           
-          <button type = "Submit" name = "Submit" formmethod = "POST" formaction = "ContactAdd2.php" style=" background-color:#33cc33; margin-top: 2% ;">Add To Contacts</button>
+          <p> Name: <input type = "text" name = "name" /></p>
+          <p>Number: <input type = "text" name = "phoneNumber" /></p>
+          
+          <button type = "Submit" name = "Submit"  formmethod = "POST" formaction = "ContactAdd2.php" style=" background-color:#33cc33; margin-top: 2% ;">Add To Contacts</button>
           <button type="Submit" formmethod = "POST" formaction = "deleteDB.php"  style="background-color:#ff3300;">Delete a Contact</button><br>
         </form>
         
-      
+     <!-- <div class = "SafeRoute">
+        <h1>Safe Route</h1>
+        <select name="SafeRoute" id="SafeRoute">
+          <optgroup>
+            <option value="Off">Off (Shortest Route)</option>
+            <option value="On">On (Safer Route)</option>
+          </optgroup>
+        </select>
+      <br>
+      </div>
 
       <p style="background-color: #ff6600; margin-top: 0; margin-bottom: 0;">Walking Speed</p>
       <form class = "WalkingSpeed" method = "POST" action = "speedDB.php"  >
@@ -93,12 +84,28 @@
         </select>
         <button type= "submit" value="Open Script" >Change</button><br/>
       </form>
-    </div>
+    </div>-->
     
     <aside>
       <button class="terms" type= "button" onclick="ShowTCs()" >Terms And Conditions</button><br>
     </aside>
 
+    <script type="text/javascript">
+
+      
+      function CheckNumber(){
+
+      }
+      function ChangeSpeed(){
+
+      }
+      function ChangeSafety(){
+
+      }
+      function ShowTCs(){
+
+      }
+    </script>
 </body>
 
 </html>

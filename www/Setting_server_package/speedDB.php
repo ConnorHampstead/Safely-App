@@ -1,8 +1,9 @@
 
 <?php
+ session_start();
 $setting = $_POST['Speed'];
 //$setting = 2;
-$userID = 1;
+$userID = $_SESSION['userID'];
 $dbServerName = "localhost";
 $dbUserName = "App";
 $dbPassword = "orange";
