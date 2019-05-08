@@ -102,7 +102,7 @@ li a:hover:not(.active) {
   margin-top: 2%;
   padding: 0 25px 0 13px;
   text-overflow: ellipsis;
-  width: 47%;
+  width: 60%;
 }
 
 #duration {
@@ -111,8 +111,8 @@ li a:hover:not(.active) {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 500;
-  margin-top: 88%;
-  margin-left: 35%;
+  margin-top: 95%;
+  margin-left: 25%;
   padding: 10px 10px 10px 10px;
   border-radius: 25px;
 
