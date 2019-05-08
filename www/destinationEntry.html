@@ -15,27 +15,29 @@
 
     <button id="settingsButton" type="button" style="height:50px;" onclick="openSettings()">SETTINGS</button><br><br>
 
-    <div class="map-input" style="display: none">
+    <div id="completemap">
+      <div class="map-input" style="display: none">
 
-        <input id="destination-input" class="controls" type="text"
-            placeholder="Enter a destination location">
+          <input id="destination-input" class="controls" type="text"
+              placeholder="Enter a destination location">
 
-        <div id="mode-selector" class="controls">
-          <input type="radio" name="type" id="changemode-walking" checked="checked">
-          <label for="changemode-walking">Walking</label>
+          <div id="mode-selector" class="controls">
+            <input type="radio" name="type" id="changemode-walking" checked="checked">
+            <label for="changemode-walking">Walking</label>
 
-          <input type="radio" name="type" id="changemode-driving">
-          <label for="changemode-driving">Driving</label>
-        </div>
+            <input type="radio" name="type" id="changemode-driving">
+            <label for="changemode-driving">Driving</label>
+          </div>
+      </div>
+      <div id="map"></div>
     </div>
-
-    <div id="map"></div>
 
     <div id="panicButtonContainer">
       <form action = "panic.php">
         <input type="submit" value= "ACTIVATE PANIC">
       </form>
     </div> 
+
 
     <script>
 
@@ -91,29 +93,17 @@
         this.directionsDisplay.setMap(map);
 
         var destinationInput = document.getElementById('destination-input');
-        var modeSelector = document.getElementById('mode-selector');
         var destinationAutocomplete =
             new google.maps.places.Autocomplete(destinationInput);
         // Specify just the place data fields that you need.
         destinationAutocomplete.setFields(['place_id']);
-        this.setupClickListener('changemode-walking', 'WALKING');
-        this.setupClickListener('changemode-driving', 'DRIVING');
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
             destinationInput);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
       }
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
-      AutocompleteDirectionsHandler.prototype.setupClickListener = function(
-          id, mode) {
-        var radioButton = document.getElementById(id);
-        var me = this;
-        radioButton.addEventListener('click', function() {
-          me.travelMode = mode;
-          me.route();
-        });
-      };
+
       AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
           autocomplete, mode) {
         var me = this;
@@ -147,6 +137,7 @@
             function(response, status) {
               if (status === 'OK') {
                 me.directionsDisplay.setDirections(response);
+                $( '#travel_data' ).html( 'Estimated travel time: ' + point.duration.text + ' (' + point.distance.text + ')' );
               } else {
                 window.alert('Directions request failed due to ' + status);
               }
