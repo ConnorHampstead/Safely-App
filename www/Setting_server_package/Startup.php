@@ -1,7 +1,8 @@
 <?php
 //session_start();
  	 session_start();
-  	$dbServerName = "localhost";
+ 	 error_reporting(0);
+  	$dbServerName = "127.0.0.1";
 	$dbUserName = "App";
 	$dbPassword = "orange";
 	$dbName = "new_schema";

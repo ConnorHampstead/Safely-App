@@ -1,6 +1,7 @@
 
 <?php
  session_start();
+ error_reporting(0);
 $setting = $_POST['Speed'];
 //$setting = 2;
 $userID = $_SESSION['userID'];

@@ -75,20 +75,26 @@ li a:hover:not(.active) {
 
 
 #panicButtonContainer input {
-  border-color: #f44336;
-  color: red;
+  border-color: red;
+  color: white;
   font-size:100%;
   font-weight:bold;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
-  display:block;
-  height: 100px;
-  width: 250px;
+  background-color: red;
+  height: 90px;
+  width: 240px;
   border-radius: 50%;
   border: 10px solid red;
-  margin-left: 20%;
-  margin-bottom: 1%
+  /*margin-left: 20%;
+  margin-bottom: 1%;
+  float: center;
+  position: fixed;
+  /*bottom: 0;*/
+}
+
+#panicButtonContainer {
+  position: relative;
+  float: center;
+  top: 480px;
 }
 
 
@@ -112,7 +118,8 @@ li a:hover:not(.active) {
   font-size: 15px;
   font-weight: 500;
   margin-top: 95%;
-  margin-left: 25%;
+  margin-left: 1%;
+  float: center;
   padding: 10px 10px 10px 10px;
   border-radius: 25px;
 
@@ -200,22 +207,6 @@ font-size: 80%;
   height:20%;
 }
 
-#panicButton {
-  border-color: #f44336;
-  color: red;
-  font-size:100%;
-  font-weight:bold;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
-  display:block;
-  height: 15%;
-  width: 25%;
-  border-radius: 50%;
-  border: 10px solid red;
-  margin-left:40.5%;
-  margin-bottom: 1%
-}
 
 #privButton{
   width: 45%;

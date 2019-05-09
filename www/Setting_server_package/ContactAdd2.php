@@ -1,6 +1,7 @@
  <!--method = "POST" action = "<?php $_PHP_SELF ?>"-->
 
  <?php
+ 	error_reporting(0);
  	session_start();
   	$userID = $_SESSION['userID'];
     $dbServerName = "localhost";

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <?php
   session_start();
+  error_reporting(0);
   require('Startup.php');
 ?>
 <html>

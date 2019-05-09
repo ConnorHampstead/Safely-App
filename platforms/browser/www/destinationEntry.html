@@ -15,22 +15,14 @@
 
     <button id="settingsButton" type="button" style="height:50px;" onclick="openSettings()">SETTINGS</button><br><br>
 
-    <div id="completemap">
-      <div class="map-input" style="display: none">
+    <div class="map-input">
 
-          <input id="destination-input" class="controls" type="text"
-              placeholder="Enter a destination location">
+      <input id="destination-input" class="controls" type="text"
+        placeholder="Enter a destination location">
 
-          <div id="mode-selector" class="controls">
-            <input type="radio" name="type" id="changemode-walking" checked="checked">
-            <label for="changemode-walking">Walking</label>
-
-            <input type="radio" name="type" id="changemode-driving">
-            <label for="changemode-driving">Driving</label>
-          </div>
-      </div>
-      <div id="map"></div>
     </div>
+    <div id="map" style="z-index = -1"></div>
+    <div id="duration" style="z-index = 1">Duration: </div>
 
     <div id="panicButtonContainer">
       <form action = "panic.php">
@@ -39,13 +31,14 @@
     </div> 
 
 
+
     <script>
-
       var infoWindow;
-          function openSettings () {
-      window.location.href="settings.html";
-    }
+      function openSettings () {
+        window.location.href="http://localhost:1234/Setting_server_package/settings.php";
+      }
 
+      
 
     //fire when device plugged in/not plugged in
     navigator.getBattery().then(function(battery) {
@@ -90,9 +83,11 @@
     }
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          //mapTypeControl: false,
-          center: {lat: 51.489093, lng: -3.177371}, //CHANGE TO CURRENT LAT AND LNG
-          zoom: 15
+          center: {lat: 51.489093, lng: -3.177371},
+          zoom: 15,
+          mapTypeControl: false,
+          streetViewControl: false,
+          zoomControl: false
         });
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -104,7 +99,6 @@
             var marker = new google.maps.Marker({
               position: pos,
               map: map,
-              title: "You're here"
             })
             map.setCenter(pos);
           }, function() {
@@ -134,7 +128,6 @@
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = new google.maps.DirectionsRenderer;
         this.directionsDisplay.setMap(map);
-
         var destinationInput = document.getElementById('destination-input');
         var destinationAutocomplete =
             new google.maps.places.Autocomplete(destinationInput);
@@ -146,7 +139,6 @@
       }
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
-
       AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
           autocomplete, mode) {
         var me = this;
@@ -158,7 +150,6 @@
             return;
           }
           if (mode === 'ORIG') {
-
           } else {
             me.destinationPlaceId = place.place_id;
           }
@@ -170,7 +161,6 @@
           return;
         }
         var me = this;
-
         this.directionsService.route(
             {
               origin: pos,
@@ -180,13 +170,13 @@
             function(response, status) {
               if (status === 'OK') {
                 me.directionsDisplay.setDirections(response);
-                $( '#travel_data' ).html( 'Estimated travel time: ' + point.duration.text + ' (' + point.distance.text + ')' );
+                document.getElementById('duration').innerHTML += Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
+                document.getElementById('duration').innerHTML += "Duration: " + Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
               } else {
                 window.alert('Directions request failed due to ' + status);
               }
             });
       };
-
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy6yq36-92B_j_KCAYaN2CfDzTfhIXKkU&libraries=places&callback=initMap"></script>
       
