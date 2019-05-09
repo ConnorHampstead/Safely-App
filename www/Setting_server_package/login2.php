@@ -36,13 +36,13 @@
             
 
             $conn->close();
-            header('Location: index.html');
+            header('Location: http://192.168.0.23:3000/destinationEntry.html');
             echo"";
         }else{
             echo"Sorry, your credentials are not valid, Please try again.";
 
             $conn->close();
-            header('Location: login.html');
+            header('Location: http://192.168.0.23:3000/login.html');
         
         }
             

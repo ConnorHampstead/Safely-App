@@ -6,6 +6,47 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
-    "dependent_plugins": {}
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "uk.ac.cf.cs.cm2305"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "uk.ac.cf.cs.cm2305"
+        },
+        "phonegap-plugin-battery-status": {
+            "PACKAGE_NAME": "uk.ac.cf.cs.cm2305"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "uk.ac.cf.cs.cm2305"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-battery-status/www/battery.js",
+            "id": "cordova-plugin-battery-status.battery",
+            "pluginId": "cordova-plugin-battery-status",
+            "clobbers": [
+                "navigator.battery"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-battery-status/src/browser/BatteryProxy.js",
+            "id": "cordova-plugin-battery-status.Battery",
+            "pluginId": "cordova-plugin-battery-status",
+            "runs": true
+        },
+        {
+            "file": "plugins/es6-promise-plugin/www/promise.js",
+            "id": "es6-promise-plugin.Promise",
+            "pluginId": "es6-promise-plugin",
+            "runs": true
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-battery-status": "2.0.3-dev",
+        "cordova-plugin-geolocation": "4.0.1",
+        "phonegap-plugin-battery-status": "1.0.0",
+        "es6-promise-plugin": "4.2.2"
+    }
 }

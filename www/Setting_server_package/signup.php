@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
             	}
        		}
-				header("location: index.html");
+				header("Location: http://192.168.0.23:3000/destinationEntry.html");
 				$to = "$email";
 				$subject = "Welcome to Safely";
 				$message = "You have registered successfully.";
