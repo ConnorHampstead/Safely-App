@@ -31,7 +31,7 @@
 	}
 
 	$conn->close();
-	header('Location: settings.php');
+	header('Location: deleteDB.php');
 	?>
 
 
