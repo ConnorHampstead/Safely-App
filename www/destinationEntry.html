@@ -22,7 +22,7 @@
 
     </div>
     <div id="map" style="z-index = -1"></div>
-    <div id="duration" style="z-index = 1"></div>
+    <div id="duration" style="z-index = 1">Duration: </div>
 
     <div id="panicButtonContainer">
       <form action = "panic.php">
@@ -40,8 +40,7 @@
       }
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          //mapTypeControl: false,
-          center: {lat: 51.489093, lng: -3.177371}, //CHANGE TO CURRENT LAT AND LNG
+          center: {lat: 51.489093, lng: -3.177371},
           zoom: 15,
           mapTypeControl: false,
           streetViewControl: false,
@@ -57,7 +56,6 @@
             var marker = new google.maps.Marker({
               position: pos,
               map: map,
-              title: "You're here"
             })
             map.setCenter(pos);
           }, function() {
@@ -133,7 +131,7 @@
             function(response, status) {
               if (status === 'OK') {
                 me.directionsDisplay.setDirections(response);
-                document.getElementById('duration').innerHTML += "Duration: " + Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
+                document.getElementById('duration').innerHTML += Math.round(response.routes[0].legs[0].duration.value/60) + " minutes";
 
               } else {
                 window.alert('Directions request failed due to ' + status);
