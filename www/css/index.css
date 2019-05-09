@@ -157,10 +157,10 @@ li a:hover:not(.active) {
 }
 
 input[type=text]:not(.map-input){
-width: 25%;
+width: 90%;
 margin-top: 1.25%;
 margin-bottom: 1.25%;
-font-size: 80%;
+font-size: 115%;
 }
 
 .Settings {
@@ -259,16 +259,17 @@ button {
 }
 
 input[type=text], input[type="password"]{
-  width: 25%;
+  width: 90%;
   margin-top: 1.25%;
   margin-bottom: 1.25%;
-  font-size: 80%;
+  font-size: 115%;
   border-radius: 4px;  
 }
 
+
 input[type=text]:focus,input[type="password"]:focus{
   border: 1.5px solid #000;
-}
+} 
 
 label{
   display:inline-block;
